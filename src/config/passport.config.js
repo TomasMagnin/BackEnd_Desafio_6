@@ -3,7 +3,7 @@ import local from 'passport-local';
 import GithubStrategy from 'passport-github2';
 import { createHash, isValidPassword } from '../utils.js';
 import { UserModel } from '../DAO/models/users.model.js'
-import CartService from '../services/carts.service.js';
+import {CartService} from '../services/carts.service.js';
 
 const cartService = new CartService();
 const LocalStrategy = local.Strategy;

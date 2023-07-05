@@ -85,5 +85,4 @@ authRouter.get('/administration', isUser, isAdmin, (req, res) => {
     return res.send('Data');
 });
 
-module.exports = authRouter;
 

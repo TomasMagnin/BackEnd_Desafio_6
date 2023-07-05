@@ -13,6 +13,7 @@ import MongoStore from "connect-mongo";
 import http from "http";
 import passport  from "passport";
 import { iniPassport } from "./config/passport.config.js";
+import { sessionsRouter } from "./routes/sessions.router.js";
 
 
 
