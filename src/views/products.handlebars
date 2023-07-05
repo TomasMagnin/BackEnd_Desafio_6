@@ -1,0 +1,56 @@
+{{#if user}}
+    <h2>Welcome, {{user.firstName}} {{user.lastName}}</h2>
+    <p>Email: {{user.email}}</p>
+    {{#if user.isAdmin}}
+        <p>Role: Admin</p>
+    {{else}}
+        <p>Role: User</p>
+    {{/if}}
+{{else}}
+    <p>Please log in to view the products.</p>
+{{/if}}
+
+<h1>All Products</h1>
+{{#each products}}
+    <div>
+        <h2>{{this.title}}</h2>
+        <p>{{this.description}}</p>
+        <p>Price: {{this.price}}</p>
+        <p>{{this.thumbnail}}</p>
+        <p>{{this.code}}</p>
+        <p>{{this.stock}}</p>
+        <p>{{this.category}}</p>
+        <p>Availability: {{this.availability}}</p> {{!-- ? --}}
+
+        <a href="/products/{{this._id}}">View details of {{this._id}}</a>
+        <button onclick="putIntoCart('{{this._id}}')">Add to cart {{this._id}}</button>
+    </div>
+{{/each}}
+
+totalPages:
+{{totalPages}}
+prevPage:
+{{prevPage}}
+nextPage:
+{{nextPage}}
+currentPage:
+{{currentPage}}
+hasPrevPage:
+{{hasPrevPage}}
+hasNextPage:
+{{hasNextPage}}
+prevLink:
+{{prevLink}}
+nextLink:
+{{nextLink}}
+
+<div class="pagination">
+    {{#if prevLink}}
+        <a href="{{prevLink}}">Previous</a>
+    {{/if}}
+
+    {{#if nextLink}}
+        <a href="{{nextLink}}">Next</a>
+    {{/if}}
+</div>
+<a href='/auth/logout'>Logout</a>

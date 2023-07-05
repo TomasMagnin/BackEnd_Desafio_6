@@ -1,0 +1,13 @@
+<h1>LOGIN</h1>
+<form action="/auth/login" method="POST">
+    <input type="text" name="email" placeholder="email">
+    <input type="text" name="password" placeholder="password">
+    <input type="submit" value="login">
+</form>
+<a href="/auth/register">Don't have an account? Sign Up</a>
+<script>
+    function redirectToGithub() {
+        window.location.href = "/api/sessions/login/github";
+    }
+</script>
+<button onclick="redirectToGithub()">Entrar con GitHub</button>

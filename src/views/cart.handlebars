@@ -1,0 +1,36 @@
+<h1>Cart</h1>
+
+{{#if cart.length}}
+  <table>
+    <thead>
+      <tr>
+        <th>title</th>
+        <th>description</th>
+        <th>price</th>
+        <th>thumbnail</th>
+        <th>code</th>
+        <th>stock</th>
+        <th>category</th>
+        <th>quantity</th>
+        {{! ? }}
+      </tr>
+    </thead>
+    <tbody>
+      {{#each cart}}
+        <tr>
+          <td>{{this.title}}</td>
+          <td>{{this.description}}</td>
+          <td>{{this.price}}</td>
+          <td>{{this.thumbnail}}</td>
+          <td>{{this.code}}</td>
+          <td>{{this.stock}}</td>
+          <td>{{this.category}}</td>
+          <td>{{this.quantity}}</td>
+          {{! ? }}
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+{{else}}
+  <p>No products in the cart</p>
+{{/if}}
