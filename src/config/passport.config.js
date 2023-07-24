@@ -39,8 +39,8 @@ export function iniPassport() {
       },
       async (req, username, password, done) => {
         try {
-          const { email, first_name, last_name, age } = req.body;
-          const cart = await cartService.createCart();
+          const { email, firstName, lastName, age } = req.body;
+          const cart = await cartService.createOne();
           const cartId = cart._id;
           let user = await UserModel.findOne({ email: username });
           if (user) {
@@ -50,8 +50,8 @@ export function iniPassport() {
 
           const newUser = {
             email,
-            first_name,
-            last_name,
+            firstName,
+            lastName,
             age,
             role: 'user',
             password: createHash(password),
@@ -86,15 +86,15 @@ export function iniPassport() {
           if (existingUser) {
             return done(null, existingUser);
           }
-          const cart = await cartService.createCart();
+          const cart = await cartService.createOne();
           const cartId = cart._id;
 
           // Crear un nuevo usuario con los datos de GitHub
           const newUser = new UserModel({
             'email': profile.id,
             'age': 21,
-            'first_name': profile.displayName,
-            'last_name': profile.displayName,         
+            'firstName': profile.displayName,
+            'lastName': profile.displayName,         
             'role': 'user',
             'password': null,
             'cartId': cartId

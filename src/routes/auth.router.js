@@ -47,7 +47,7 @@ authRouter.get('/failregister', async (req, res) => {
 
 
 
-authRouter.get('/products', (req, res) => {
+authRouter.get('/products', async (req, res) => {
     try{
         const user = UserModel.findOne({email: req.session.email});
         if (user) {
